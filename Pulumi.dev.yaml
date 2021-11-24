@@ -1,0 +1,3 @@
+config:
+  gcp:project: tchelinux-332922
+  gcp:zone: europe-north1-a

@@ -1,0 +1,6 @@
+name: tchelinux-2021
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: TcheLinux presentation about Pulumi using Python on Google Cloud Platform
