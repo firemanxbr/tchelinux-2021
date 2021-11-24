@@ -1,3 +1,6 @@
+"""
+    TcheLinux 2021 - Pulumi - Modern Infrastructure as Code
+"""
 import pulumi
 from pulumi import ResourceOptions
 from pulumi_gcp import compute
@@ -17,7 +20,7 @@ compute_firewall = compute.Firewall(
 )
 
 # A simple bash script that will run when the webserver is initalized
-startup_script = """#!/bin/bash
+STARTUP_SCRIPT = """#!/bin/bash
 echo "Hello, World!" > index.html
 nohup python -m SimpleHTTPServer 80 &"""
 
@@ -25,7 +28,7 @@ instance_addr = compute.address.Address("address")
 compute_instance = compute.Instance(
     "instance",
     machine_type="f1-micro",
-    metadata_startup_script=startup_script,
+    metadata_startup_script=STARTUP_SCRIPT,
     boot_disk=compute.InstanceBootDiskArgs(
         initialize_params=compute.InstanceBootDiskInitializeParamsArgs(
             image="debian-cloud/debian-9-stretch-v20181210"
